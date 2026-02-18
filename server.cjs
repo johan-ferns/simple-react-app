@@ -28,7 +28,11 @@ if (!isDevelopment) {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'Server is running', mode: isDevelopment ? 'development' : 'production' });
+  res.json({ 
+    status: 'Server is running',
+    environment: process.env.NODE_ENV || 'development',
+    timestamp: new Date().toISOString()
+  });
 });
 
 // Proxy endpoint for Azure ML
@@ -61,7 +65,7 @@ app.post('/api/score', async (req, res) => {
   }
 });
 
-// SPA fallback - only in production
+// SPA fallback - serve React app for all other routes
 if (!isDevelopment) {
   app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
@@ -70,4 +74,5 @@ if (!isDevelopment) {
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
+  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
 });
