@@ -6,9 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "server": "node server.cjs",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\" --names \"React,Server\" --prefix-colors \"cyan,green\""
   },
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -16,6 +23,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^9.2.1",
     "typescript": "^5.0.0",
     "vite": "^4.5.0"
   }
