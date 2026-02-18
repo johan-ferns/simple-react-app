@@ -8,6 +8,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // Dynamic API URL based on environment
+  const API_URL = import.meta.env.VITE_API_URL || '';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -19,8 +22,8 @@ function App() {
       const jsonInput = JSON.parse(inputText);
       setSubmittedText(inputText);
 
-      // Call your proxy server
-      const response = await fetch('http://localhost:3001/score', {
+      // Call your proxy server with dynamic URL
+      const response = await fetch(`${API_URL}/api/score`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

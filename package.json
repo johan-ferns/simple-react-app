@@ -8,8 +8,10 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node server.cjs",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\" --names \"React,Server\" --prefix-colors \"cyan,green\""
+    "server": "cross-env NODE_ENV=development node server.cjs",
+    "server:prod": "NODE_ENV=production node server.cjs",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\" --names \"React,Server\" --prefix-colors \"cyan,green\"",
+    "start": "cross-env NODE_ENV=production node server.cjs"
   },
   "dependencies": {
     "cors": "^2.8.6",
@@ -24,6 +26,7 @@
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.0.0",
     "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
     "typescript": "^5.0.0",
     "vite": "^4.5.0"
   }
