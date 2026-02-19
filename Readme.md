@@ -79,3 +79,7 @@ simple-react-app/
 - **TypeScript** - Type safety
 - **Vite 4.5.0** - Build tool (compatible with Node 16)
 - **CSS** - Styling
+
+## WIP:
+
+Deploying to Azure
