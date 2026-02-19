@@ -80,6 +80,6 @@ simple-react-app/
 - **Vite 4.5.0** - Build tool (compatible with Node 16)
 - **CSS** - Styling
 
-## WIP:
+## Documentation for Azure deployment:
 
-Deploying to Azure
+[Deploying to Azure](https://gitlab.k8s.cloud.statcan.ca/frontend-dev/simple-react-app/-/wikis/home/Setting-up-on-Azure-App-Service)
